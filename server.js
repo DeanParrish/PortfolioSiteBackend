@@ -8,17 +8,17 @@ const cors = require('cors');
 const whitelist = ['http://localhost:8100',];
 
     const corsOptionsDelegate = (req, callback) => {
-    let corsOptions;
+     let corsOptions;
 
-    let isDomainAllowed = whitelist.indexOf(req.header('Origin')) !== -1;
+    // let isDomainAllowed = whitelist.indexOf(req.header('Origin')) !== -1;
 
-    if (isDomainAllowed) {
-        // Enable CORS for this request
-        corsOptions = { origin: true }
-    } else {
-        // Disable CORS for this request
-        corsOptions = { origin: false }
-    }
+    // if (isDomainAllowed) {
+    //     // Enable CORS for this request
+    //     corsOptions = { origin: true }
+    // } else {
+    //     // Disable CORS for this request
+    //     corsOptions = { origin: false }
+    // }
     callback(null, corsOptions)
 }
 
@@ -34,7 +34,8 @@ app.use(express.static(path.join(__dirname, 'dist/my-test-angular-app')));
 app.use(express.static(path.join(__dirname, 'src')));
 
 // API location
-app.use('/api', cors(corsOptionsDelegate),  api);
+//app.use('/api', cors(corsOptionsDelegate),  api);
+app.use('/api',  api);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {

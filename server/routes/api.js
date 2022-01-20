@@ -6,7 +6,7 @@ const req = require('request');
 
 // Connect
 const connection = (closure) => {
-    return MongoClient.connect('mongodb://localhost:27017/test', { useNewUrlParser: true }, (err, client) => {
+    return MongoClient.connect('mongodb://mongo:27017/test', { useNewUrlParser: true }, (err, client) => {
     if (err) return console.log(err);
     closure(client.db());
     });
@@ -68,7 +68,7 @@ let response = {
 };
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/test", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://mongo:27017/test", {useNewUrlParser: true, useUnifiedTopology: true});
 
 var userSchema = new mongoose.Schema({
     firstName: String,
@@ -238,6 +238,7 @@ router.post('/insertrecipe',  (req, res) => {
     admin.auth().verifyIdToken(req.header("Authorization")).then(result => {
     connection((db) => {
         var data = new Recipe(req.body);
+        console.log(req.body);
         console.log("inside api req.body: " + data)
         data.save()
         .then(item => {
