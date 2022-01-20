@@ -12,7 +12,6 @@ const connection = (closure) => {
     });
 };
 
-console.log(req);
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./../../portfoliowebsite-28f8a-firebase-adminsdk-8e4dv-6513fab54f.json");
@@ -40,7 +39,6 @@ admin.initializeApp({
 //     algorithms: ['RS256']
 //   });
 const checkJwt = function(idToken){
-    console.log(JSON.stringify(req));
     admin
   .auth()
   .verifyIdToken(idToken)
@@ -87,7 +85,6 @@ var User = mongoose.model("customerInfo", userSchema);
 
 // Get users
 router.get('/users', (req, res) => {
-    console.log(req.header("Authorization"));
     admin.auth().verifyIdToken(req.header("Authorization")).then(result => {
         connection((db) => {
             User.find({}).sort("firstName")
@@ -115,10 +112,8 @@ router.post('/insertuser', (req, res) => {
     admin.auth().verifyIdToken(req.header("Authorization")).then(result => {
         connection((db) => {
             var data = new User(req.body);
-            console.log("inside api req.body: " + data)
             data.save()
             .then(item => {
-                console.log("item saved to database");
                 response.data = item;
                 res.json(response)
                 })
@@ -151,7 +146,6 @@ router.put("/updatecustomer/:id", (req, res) => {
 router.post("/deletecustomer/:id", (req, res) => {
     admin.auth().verifyIdToken(req.header("Authorization")).then(result => {
         connection((db) => {
-            console.log(req.body);
             User.deleteOne({_id: req.params.id})
                 .then(item => {
                     response.data = item;
@@ -220,7 +214,6 @@ router.get('/recipes', (req, res) => {
 });
 
 router.get('/userrecipes/:id', (req, res) => {
-    console.log(req.body);
     admin.auth().verifyIdToken(req.header("Authorization")).then(result => {
         connection((db) => {
             db.collection("recipes").find({"userID": req.params.id}).toArray().then((recipes) =>{
@@ -238,16 +231,12 @@ router.post('/insertrecipe',  (req, res) => {
     admin.auth().verifyIdToken(req.header("Authorization")).then(result => {
     connection((db) => {
         var data = new Recipe(req.body);
-        console.log(req.body);
-        console.log("inside api req.body: " + data)
         data.save()
         .then(item => {
-            console.log("item saved to database");
             response.data = item;
             res.json(response)
             })
             .catch(err => {
-                console.log("not saved")
                 sendError(err, res);
             });
     });
@@ -265,7 +254,6 @@ router.put("/updaterecipe/:id",  (req, res) => {
                 res.json(response);
             })
             .catch(err => {
-                console.log("not saved")
                 sendError(err, res);
             });
         res.data = "in update";
