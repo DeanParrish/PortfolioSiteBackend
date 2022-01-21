@@ -20,6 +20,8 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
+  FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
+  MONGO_ENV: mongo
 
 
 jobs:
