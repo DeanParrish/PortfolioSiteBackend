@@ -3,6 +3,8 @@ services:
        backend-app:
            container_name: test-backend
            image: test-backend
+           environment: 
+           - MONGO_ENV=mongo
            restart: always
            build: .
            ports:
