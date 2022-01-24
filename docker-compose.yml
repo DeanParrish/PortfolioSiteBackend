@@ -2,9 +2,7 @@ version: "3.4"
 services:
        backend-app:
            container_name: test-backend
-           image: test-backend
-           MONGO_ENV=mongo
-           FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }}         
+           image: test-backend     
            restart: always
            build: .
            ports:
