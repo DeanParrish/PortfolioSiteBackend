@@ -17,6 +17,8 @@ on:
     
      - name: Checkout repository
         uses: actions/checkout@v2
+        
+     - name: Build Image   
         env: 
           FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
           MONGO_ENV: mongo
