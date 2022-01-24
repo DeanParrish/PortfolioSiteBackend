@@ -1,0 +1,23 @@
+on:
+  push:
+    branches: [ master ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    branches: [ master ]
+    
+    jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+     - name: Checkout repository
+        uses: actions/checkout@v2
+        env: 
+          FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
+          MONGO_ENV: mongo
+        run: docker compose up  
