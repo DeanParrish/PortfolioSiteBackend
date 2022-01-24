@@ -1,4 +1,4 @@
-version: "2.2"
+version: "3.4"
 services:
        backend-app:
            container_name: test-backend
