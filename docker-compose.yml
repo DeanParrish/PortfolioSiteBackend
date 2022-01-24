@@ -2,7 +2,6 @@ version: "3.4"
 services:
        backend-app:
            container_name: test-backend
-           image: test-backend
            environment: 
            - MONGO_ENV=mongo
            - FIREBASE_CREDS=test
