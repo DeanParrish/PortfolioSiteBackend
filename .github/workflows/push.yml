@@ -23,8 +23,8 @@ jobs:
      - name: Build Image   
        run: docker build -t test-backend . 
        env:
-          MONGO_ENV=mongo
-          FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }}    
+          MONGO_ENV: mongo
+          FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}    
        
      - name: Compose Image   
        run: docker compose up  
