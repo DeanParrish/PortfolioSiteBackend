@@ -21,4 +21,7 @@ jobs:
        uses: actions/checkout@v2
         
      - name: Build Image   
+       run: docker build -t test-backend . 
+       
+     - name: Compose Image   
        run: docker compose up  
