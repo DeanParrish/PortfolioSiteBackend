@@ -1,3 +1,5 @@
+name: Build Backend
+
 on:
   push:
     branches: [ master ]
@@ -8,7 +10,7 @@ on:
   workflow_dispatch:
     branches: [ master ]
     
-    jobs:
+jobs:
   build:
 
     runs-on: ubuntu-latest
@@ -16,10 +18,10 @@ on:
     steps:
     
      - name: Checkout repository
-        uses: actions/checkout@v2
+       uses: actions/checkout@v2
         
      - name: Build Image   
-        env: 
+       env: 
           FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
           MONGO_ENV: mongo
-        run: docker compose up  
+       run: docker compose up  
