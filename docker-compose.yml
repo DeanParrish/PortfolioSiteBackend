@@ -4,8 +4,8 @@ services:
            container_name: test-backend
            image: test-backend
            environment: 
-           - MONGO_ENV=mongo
-           - FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }}
+           - MONGO_ENV: mongo
+           - FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
            restart: always
            build: .
            ports:
