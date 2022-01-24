@@ -21,7 +21,4 @@ jobs:
        uses: actions/checkout@v2
         
      - name: Build Image   
-       env: 
-          FIREBASE_CREDS: testing
-          MONGO_ENV: mongo
        run: docker compose up  
