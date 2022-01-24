@@ -22,6 +22,6 @@ jobs:
         
      - name: Build Image   
        env: 
-          FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
+          FIREBASE_CREDS: $${{ secrets.FIREBASE_CREDS }}
           MONGO_ENV: mongo
        run: docker compose up  
