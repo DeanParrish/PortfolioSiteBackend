@@ -3,7 +3,7 @@ services:
        backend-app:
            container_name: test-backend
            image: test-backend
-           environment: 
+           env: 
            - MONGO_ENV: mongo
            - FIREBASE_CREDS: test
            restart: always
