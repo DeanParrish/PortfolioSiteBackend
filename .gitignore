@@ -43,3 +43,5 @@ src\auth_config.json
 portfoliowebsite-28f8a-firebase-adminsdk-8e4dv-6513fab54f.json
 .env
 environment.prod.env
+
+/data
