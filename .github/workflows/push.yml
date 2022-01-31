@@ -25,16 +25,10 @@ jobs:
           ls
           touch .env
           echo MONGO_ENV=mongo >> .env
-          echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env
-          cat .env
-          
-     - name: Show env file
-       run: |
-          ls
-          echo .env
+          echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env       
         
      - name: Build Image   
        run: docker build -t test-backend .   
        
      - name: Compose Image   
-       run: docker compose up  
+       run: docker compose up --no-start   
