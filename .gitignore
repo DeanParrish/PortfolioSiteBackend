@@ -47,3 +47,11 @@ environment.prod.env
 /data
 data/
 data/WiredTiger.turtle
+Untitled-1.yml
+data/index-6-2749450820512011711.wt
+data/mongod.lock
+data/WiredTiger.turtle
+data/WiredTiger.wt
+data/diagnostic.data/metrics.2022-01-23T22-46-11Z-00000
+data/diagnostic.data/metrics.interim
+data/journal/WiredTigerLog.0000000017
