@@ -23,8 +23,8 @@ jobs:
      - name: Create env file
        run: |
           touch .env
-          echo MONGO_ENV="mongo" >> .env
-          echo FIREBASE_CRED=${{ secrets.FIREBASE_CREDS }} >> .env
+          echo MONGO_ENV="mongo" > .env
+          echo FIREBASE_CRED=${{ secrets.FIREBASE_CREDS }} > .env
           cat .env
         
      - name: Build Image   
