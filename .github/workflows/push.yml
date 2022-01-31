@@ -31,4 +31,7 @@ jobs:
        run: docker build -t test-backend .   
        
      - name: Compose Image   
-       run: docker compose up --no-start   
+       run: docker compose up --no-start  
+       
+     - name: Push to Github Packages
+       run: docker push ghcr.io/deanparrish/portfoliositebackend:latest
