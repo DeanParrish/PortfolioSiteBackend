@@ -28,7 +28,7 @@ jobs:
           echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env       
         
      - name: Build Image   
-       run: docker build -t test-backend .   
+       run: docker build -t ghcr.io/deanparrish/portfoliositebackend .   
        
      - name: Compose Image   
        run: docker compose up --no-start  
