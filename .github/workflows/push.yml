@@ -19,12 +19,16 @@ jobs:
     
      - name: Checkout repository
        uses: actions/checkout@v2
+       
+     - name: Create env file
+       run: |
+          touch .env
+          echo MONGO_ENV="mongo" >> .env
+          echo FIREBASE_CRED=${{ secrets.FIREBASE_CREDS }} >> .env
+          cat .env
         
      - name: Build Image   
-       run: docker build -t test-backend . 
-       env:
-          MONGO_ENV: mongo
-          FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}    
+       run: docker build -t test-backend .   
        
      - name: Compose Image   
        run: docker compose up  
