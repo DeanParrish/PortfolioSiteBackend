@@ -28,7 +28,7 @@ jobs:
           cat .env
           
      - name: Show env file
-       run: RUN cat /.env
+       run: cat /.env
         
      - name: Build Image   
        run: docker build -t test-backend .   
