@@ -25,7 +25,7 @@ jobs:
           ls
           touch .env
           echo MONGO_ENV=mongo >> .env
-          echo FIREBASE_CRED=${{ secrets.FIREBASE_CREDS }} >> .env
+          echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env
           cat .env
           
      - name: Show env file
