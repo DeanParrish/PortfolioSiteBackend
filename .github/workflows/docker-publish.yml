@@ -6,8 +6,6 @@ name: Docker
 # documentation.
 
 on:
-  schedule:
-    - cron: '24 14 * * *'
   push:
     branches: [ master ]
     # Publish semver tags as releases.
@@ -22,9 +20,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  FIREBASE_CREDS: ${{ secrets.FIREBASE_CREDS }}
-  MONGO_ENV: mongo
-  TEST: TEST
 
 
 jobs:
@@ -41,6 +36,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        
+      - name: Create env file
+        run: |
+          touch .env
+          echo MONGO_ENV=mongo >> .env
+          echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env      
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
