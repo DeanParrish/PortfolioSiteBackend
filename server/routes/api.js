@@ -17,8 +17,7 @@ const connection = (closure) => {
 };
 
 var admin = require("firebase-admin");
-console.log(process.env.FIREBASE_CREDS);
-console.log(process.env.MONGO_ENV);
+console.log("MONGO_ENV: " + process.env.MONGO_ENV);
 
 admin.initializeApp({
   credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_CREDS)),

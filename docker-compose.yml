@@ -2,7 +2,7 @@ version: "3.4"
 services:
        backend-app:
            container_name: test-backend
-           image: test-backend     
+           image: ghcr.io/deanparrish/portfoliositebackend:latest    
            restart: always
            build: .
            ports:
