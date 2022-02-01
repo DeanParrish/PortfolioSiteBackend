@@ -42,6 +42,7 @@ jobs:
           touch .env
           echo MONGO_ENV="mongo" >> .env
           echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env      
+          cat .env
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
