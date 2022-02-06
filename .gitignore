@@ -55,3 +55,12 @@ data/WiredTiger.wt
 data/diagnostic.data/metrics.2022-01-23T22-46-11Z-00000
 data/diagnostic.data/metrics.interim
 data/journal/WiredTigerLog.0000000017
+data/collection-2-2749450820512011711.wt
+data/collection-2-2749450820512011711.wt
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+data/mongod.lock
