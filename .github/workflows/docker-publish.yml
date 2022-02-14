@@ -41,7 +41,9 @@ jobs:
         run: |
           touch .env
           echo MONGO_ENV="mongo" >> .env
-          echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env      
+          echo FIREBASE_CREDS=${{ secrets.FIREBASE_CREDS }} >> .env
+          echo MONGO_USER=${{ secrets.MONGO_USER }} >> .env
+          echo MONGO_PASS=${{ secrets.MONGO_PASS }} >> .env
           cat .env
 
       # Install the cosign tool except on PR
