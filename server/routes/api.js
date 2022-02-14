@@ -7,7 +7,7 @@ const req = require("request");
 // Connect
 const connection = (closure) => {
   return MongoClient.connect(
-    "mongodb://" + process.env.MONGO_ENV + ":27017/test",
+    "mongodb://"+ process.env.MONGO_USER + ":" + encodeURIComponent(process.env.MONGO_PASS) + "@" + process.env.MONGO_ENV + ":27017/test?authSource=admin",
     { useNewUrlParser: true },
     (err, client) => {
       if (err) return console.log(err);
